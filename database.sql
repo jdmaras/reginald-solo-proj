@@ -4,7 +4,27 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+"id" SERIAL PRIMARY KEY,
+"admin" BOOLEAN,
+"username" VARCHAR(255) UNIQUE NOT NULL,
+"email" VARCHAR(255),
+"password" VARCHAR(255) NOT NULL,
+"address" VARCHAR(255)
+);
+
+CREATE TABLE "merch"(
+"id" SERIAL PRIMARY KEY,
+"img_url" VARCHAR,
+"product_name" VARCHAR,
+"product_type" VARCHAR,
+"size" VARCHAR,
+"price" INTEGER
+);
+
+CREATE TABLE "orders" (
+"id" SERIAL PRIMARY KEY,
+"user_id" INT REFERENCES "user",
+"product_id" INT REFERENCES "merch",
+"quantity" INTEGER,
+"order_total" INTEGER
 );
