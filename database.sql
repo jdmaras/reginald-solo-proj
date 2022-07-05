@@ -25,6 +25,5 @@ CREATE TABLE "orders" (
 "id" SERIAL PRIMARY KEY,
 "user_id" INT REFERENCES "user",
 "product_id" INT REFERENCES "merch",
-"quantity" INTEGER,
-"order_total" INTEGER
+"quantity" INTEGER
 );

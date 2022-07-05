@@ -13,6 +13,13 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import { LandingPageReg } from '../LandingPageReg/LandingPageReg';
+import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
+import { MerchCartView } from '../MerchCartView/MerchCartView';
+import { MerchStore } from '../MerchStore/MerchStore';
+import { InfoReg } from '../InfoReg/InfoReg';
+import { NavigationReg } from '../NavigationReg/NavigationReg';
+import { FanClub } from '../FanClub/FanClub';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -34,6 +41,13 @@ function App() {
   return (
     <Router>
       <div>
+        <Route
+        exact
+        path="/navigationreg">
+
+        
+        <NavigationReg />
+        </Route>
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
