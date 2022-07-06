@@ -7,3 +7,5 @@ function MerchCartView(){
 }
 
 export default MerchCartView;
+
+// THIS HAS TO POST! THE ORDER UPON CHECKOUT

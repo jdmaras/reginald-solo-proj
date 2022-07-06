@@ -21,6 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 // POST moving things into carts - TESTED - WORKS
 router.post('/cart', rejectUnauthenticated, (req, res) =>{
+  console.log('req.body', req.body)
   const sqlQuery = `
   INSERT INTO "orders"
   (user_id, product_id, quantity)
@@ -40,6 +41,24 @@ router.post('/cart', rejectUnauthenticated, (req, res) =>{
     console.log('error in POST adding to cart', err)
     res.sendStatus(500)
   });
+})
+// this is grabbing what is in the cart to append
+router.get('/cart', (req, res) => {
+  const sqlQuery = `
+    SELECT *
+    FROM orders
+    WHERE user_id = $1
+  `
+  const sqlParams = [req.user.id]
+
+  pool.query(sqlQuery, sqlParams)
+    .then(dbRes => {
+      // when grabbing from db it is a row of info
+      res.send(dbRes.rows)
+    })
+    .catch(err => {
+      console.log('Failed to GET cart', err)
+    })
 })
 
 
