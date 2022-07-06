@@ -22,7 +22,7 @@ export const NavigationReg = () => {
                 <div className='w-24 relative'>
                     <img src="https://i.imgur.com/UCmrBSS.png" />
                         <div className="opacity-0 hover:opacity-100 duration-300 absolute mt-14 inset-2 items-center text-2xl p-4 text-orange-400 font-bold">
-                        <p className='homeText'>HOME</p>
+                            <p className='homeText'>HOME</p>
                         </div>
                 
                 </div>
@@ -43,12 +43,12 @@ export const NavigationReg = () => {
                   </Link>
                 </ul>
             </div>
+              <Link to="/login">
+                <button className='border-none bg-transparent text-black mr-4'>SIGN IN</button>
+              </Link>
             <div className='hidden md:flex pr-2'>
-              <Link to="/LoginForm">
-                <button className='border-none bg-transparent text-black mr-4'>Sign In</button>
-                </Link>
                 <Link to="/fanclub">
-                <button className='px-8 py-3'>Become A Fan</button>
+                  <button className='px-8 py-3'>BECOME A FAN</button>
                 </Link>
             </div>
         </div>

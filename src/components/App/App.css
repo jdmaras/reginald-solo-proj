@@ -1,6 +1,13 @@
 .homeText{
   text-shadow: rgb(0, 0, 0) -2px 5px 20px;
 }
+body {
+  background-color: whitesmoke;
+}
+.registerFormContainer{
+  display: flex;
+  justify-content: center;
+}
 @tailwind base;
 
 @tailwind components;
