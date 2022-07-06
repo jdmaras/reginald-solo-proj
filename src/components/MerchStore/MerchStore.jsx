@@ -1,7 +1,11 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-export const MerchStore = () => {
+function MerchStore() {
   return (
     <div>MerchStore</div>
   )
 }
+
+export default MerchStore

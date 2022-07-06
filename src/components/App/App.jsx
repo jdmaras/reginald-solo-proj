@@ -41,14 +41,9 @@ function App() {
   return (
     <Router>
       <div>
-        <Route
-        exact
-        path="/navigationreg">
 
-        
         <NavigationReg />
-        </Route>
-        <Nav />
+        
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -57,9 +52,9 @@ function App() {
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
-            path="/about"
+            path="/inforeg"
           >
-            <AboutPage />
+            <InfoReg />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -124,10 +119,10 @@ function App() {
             }
           </Route>
 
-          {/* If none of the other routes matched, we will show a 404. */}
+          {/* If none of the other routes matched, we will show a 404.
           <Route>
             <h1>404</h1>
-          </Route>
+          </Route> */}
         </Switch>
         <Footer />
       </div>

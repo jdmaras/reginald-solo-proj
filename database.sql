@@ -18,7 +18,7 @@ CREATE TABLE "merch"(
 "product_name" VARCHAR,
 "product_type" VARCHAR,
 "size" VARCHAR,
-"price" INTEGER
+"price" DECIMAL (5,2)
 );
 
 CREATE TABLE "orders" (
@@ -27,3 +27,6 @@ CREATE TABLE "orders" (
 "product_id" INT REFERENCES "merch",
 "quantity" INTEGER
 );
+
+DROP TABLE "merch";
+DROP TABLE "orders";
