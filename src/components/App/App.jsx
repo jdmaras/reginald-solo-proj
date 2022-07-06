@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
+
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { LandingPageReg } from '../LandingPageReg/LandingPageReg';
 import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
 import { MerchCartView } from '../MerchCartView/MerchCartView';
-import { MerchStore } from '../MerchStore/MerchStore';
+import MerchStore from '../MerchStore/MerchStore';
 import { InfoReg } from '../InfoReg/InfoReg';
 import { NavigationReg } from '../NavigationReg/NavigationReg';
 import { FanClub } from '../FanClub/FanClub';
@@ -43,7 +43,7 @@ function App() {
       <div>
 
         <NavigationReg />
-        
+
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -69,14 +69,6 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
           <Route
             exact
             path="/login"
@@ -89,6 +81,12 @@ function App() {
               // Otherwise, show the login page
               <LoginPage />
             }
+          </Route>
+          <Route
+          exact
+          path="/merchstore"
+          >
+            <MerchStore />
           </Route>
 
           <Route

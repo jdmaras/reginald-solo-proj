@@ -1,7 +1,7 @@
 import axios from "axios";
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* getMerch() {
+function* getMerch(action) {
     try {
         const items = yield axios.get('/api/merch', action.payload);
         yield put ({
@@ -15,7 +15,7 @@ function* getMerch() {
 }
 
 function* merchSaga() {
-    yield takeLatest('FETCH_SHELF', getMerch)
+    yield takeLatest('FETCH_MERCH', getMerch)
 }
 
 export default merchSaga;
