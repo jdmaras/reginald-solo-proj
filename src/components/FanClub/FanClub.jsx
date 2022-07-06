@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const FanClub = () => {
+function FanClub() {
   return (
     <div>FanClub</div>
   )
 }
+
+export default FanClub;

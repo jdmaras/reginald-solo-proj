@@ -13,16 +13,16 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import { LandingPageReg } from '../LandingPageReg/LandingPageReg';
+
 import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
 import { MerchCartView } from '../MerchCartView/MerchCartView';
 import MerchStore from '../MerchStore/MerchStore';
 import { InfoReg } from '../InfoReg/InfoReg';
 import { NavigationReg } from '../NavigationReg/NavigationReg';
-import { FanClub } from '../FanClub/FanClub';
+import FanClub from '../FanClub/FanClub';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -56,6 +56,12 @@ function App() {
           >
             <InfoReg />
           </Route>
+          <Route
+            exact
+            path="/fanclub"
+          >
+            <FanClub />
+          </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -84,7 +90,7 @@ function App() {
           </Route>
           <Route
           exact
-          path="/merchstore"
+          path="/merch"
           >
             <MerchStore />
           </Route>
@@ -102,7 +108,6 @@ function App() {
               <RegisterPage />
             }
           </Route>
-
           <Route
             exact
             path="/home"
