@@ -15,12 +15,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 
 import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
-import { MerchCartView } from '../MerchCartView/MerchCartView';
+import MerchCartView from '../MerchCartView/MerchCartView';
 import MerchStore from '../MerchStore/MerchStore';
 import { InfoReg } from '../InfoReg/InfoReg';
 import { NavigationReg } from '../NavigationReg/NavigationReg';
 import FanClub from '../FanClub/FanClub';
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 
 import LandingPage from '../LandingPage/LandingPage';

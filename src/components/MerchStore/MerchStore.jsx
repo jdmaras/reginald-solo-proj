@@ -21,9 +21,20 @@ function MerchStore() {
         })
     }
   return (
-    <div>
-        MerchStore
-
+    <div className='merchContainer'>
+        <div className='merchCard'>
+            <ul>
+                {merch.map(item => {
+                return(
+                    <li key={item.id}>
+                        {item.product_name}
+                        <img src={item.img_url} />
+                        {item.price}
+                    </li>
+                    )
+                })}
+            </ul>
+        </div>
     </div>
   )
 }
