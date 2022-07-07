@@ -74,3 +74,13 @@ body {
 ul {
   list-style-type: none;
 }
+.merchContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.merchCard{
+  
+  width: 30em;
+
+}

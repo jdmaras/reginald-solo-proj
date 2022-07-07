@@ -12,6 +12,7 @@ function MerchStore() {
     //console.log ('What are the params', params)
     console.log('this is the merch', merch)
 
+
     useEffect(() => {
         getMerchDetails()
     }, [])
@@ -32,7 +33,10 @@ function MerchStore() {
                     <li key={item.id}>
                         {item.product_name}
                         <img src={item.img_url} />
+                        <div className='mt-2 mb-1'>
                         {item.price}
+                        </div>
+                        
                         {/* grabbing the value of every item you click with the id={item.id} */}
                         <AddToCart item={item} />
                     </li>
