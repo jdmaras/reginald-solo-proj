@@ -31,7 +31,7 @@ export const NavigationReg = () => {
                 {/* mr - margin right / sm:text 4xl - text will be 3xl and if they switch the screen sizes, it adjusts (mostly a mobile type thing) */}
                 <h1 className='text-med font-bold mr-3 sm:text-4xl'>REGINALD</h1>
                 <ul className='hidden md:flex '>
-                  <Link to="/fanclub">
+                  <Link to="/registration">
                   <button className='border-none bg-transparent text-black'><li>FAN CLUB</li></button>
                   </Link>
                   <Link to ="/inforeg">
@@ -47,7 +47,7 @@ export const NavigationReg = () => {
                 <button className='border-none bg-transparent text-black mt-3'>SIGN IN</button>
               </Link>
             <div className='hidden md:flex pr-2'>
-                <Link to="/fanclub">
+                <Link to="/registration">
                   <button className='px-6 py-3'>BECOME A FAN</button>
                 </Link>
             </div>

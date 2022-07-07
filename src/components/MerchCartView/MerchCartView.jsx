@@ -9,6 +9,14 @@ function MerchCartView(){
   useEffect(() => {
    addUpPrices
   },[cart])
+
+  const appendToDb = (event) => {
+    event.preventDefault();
+
+    dispatch({
+      typ: 'ADD'
+    })
+  }
   
   //need to convert the string to a number
   function addUpPrices(cart){
