@@ -27,7 +27,7 @@ function* fetchCart() {
     }
 }
 
-function* addCart(action){
+function* checkoutCart(action){
     try {
         const items = yield axios.post('/api/merch/cart', action.payload)
         yield put ({
@@ -54,7 +54,7 @@ function* deleteItem(action){
 
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
-    yield takeLatest('ADD_CART', addCart)
+    yield takeLatest('CHECKOUT_CART', checkoutCart)
     yield takeLatest('FETCH_CART', fetchCart)
 }
 
