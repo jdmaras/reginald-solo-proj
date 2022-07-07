@@ -1,6 +1,7 @@
 import React from 'react'
 //import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import AddToCart from './AddToCart';
 
@@ -24,6 +25,7 @@ function MerchStore() {
         })
     }
   return (
+    <>
     <div className='merchContainer'>
         <div className='merchCard'>
             <h4>cart: {cart.length}</h4>
@@ -47,6 +49,10 @@ function MerchStore() {
             
         </div>
     </div>
+    <div>
+        <Link to="/merchcartview">Proceed To Checkout</Link>
+    </div>
+    </>
   )
 }
 

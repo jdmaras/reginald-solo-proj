@@ -39,6 +39,19 @@ function* addCart(action){
     }
 }
 
+function* deleteItem(action){
+    console.log('in delete item')
+//     try{
+// //         yield axios.delete(`/api/merch/${action.payload.id}`);
+// //     }
+// //     catch(err) {
+// //         console.log("err in saga delete", err)
+// //     }
+// //     yield put({
+// //         type:'FETCH_'
+// //     })
+}
+
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
     yield takeLatest('ADD_CART', addCart)

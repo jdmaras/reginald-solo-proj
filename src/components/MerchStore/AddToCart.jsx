@@ -9,7 +9,8 @@ function AddToCart({item}){
             payload: {
                 product_id: item.id,
                 product_name: item.product_name,
-                img_url: item.img_url
+                img_url: item.img_url,
+                price: item.price
          }
         })
     }

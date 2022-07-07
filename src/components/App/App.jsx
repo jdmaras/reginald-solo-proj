@@ -93,6 +93,12 @@ function App() {
           >
             <MerchStore />
           </Route>
+          <Route
+          exact
+          path="/merchcartview"
+          >
+            <MerchCartView />
+          </Route>
 
           <Route
             exact
