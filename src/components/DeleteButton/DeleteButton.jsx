@@ -1,8 +1,18 @@
+import { useDispatch, useSelector } from 'react-redux'
+function DeleteButton({itemId}){
 
-function DeleteButton(){
+    const dispatch = useDispatch();
+    let merch = useSelector(store => store.merch)
+    const handleClick = () => {
+        console.log('whaqt is merch?', merch)
+        dispatch({
+            type: 'DELETE_ITEM',
+            payload: {id: itemId}
+        })
+    }
     return (
         <>
-        <button>DELETE</button>
+        <button onClick={handleClick}>DELETE</button>
         </>
     )
 }

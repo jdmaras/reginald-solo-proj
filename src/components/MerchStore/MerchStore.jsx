@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import AddToCart from './AddToCart';
+import DeleteButton from '../DeleteButton/DeleteButton';
 
 function MerchStore() {
     const dispatch = useDispatch();
@@ -41,6 +42,8 @@ function MerchStore() {
                         
                         {/* grabbing the value of every item you click with the id={item.id} */}
                         <AddToCart item={item} />
+                        <h1>NOTE: DELETE NEEDS TO CONDITIONAL TO BEING ONLY AVAILABLE FOR ADMIN VIEW</h1>
+                        <DeleteButton itemId={item.id}/>
                     </li>
                     )
                 })}
@@ -48,6 +51,9 @@ function MerchStore() {
             </ul>
             
         </div>
+    </div>
+    <div>
+        
     </div>
     <div>
         <Link to="/merchcartview">Proceed To Checkout</Link>

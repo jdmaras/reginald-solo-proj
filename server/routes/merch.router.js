@@ -77,14 +77,17 @@ router.post('/', (req, res) => {
 
 //Admin Delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  if (req.user.admin) {
   const sqlQuery = `
   DELETE FROM "merch" 
   WHERE id = $1
   RETURNING *;
   `
+  
+  //prepared statement
   const sqlParams = [
     req.params.id,
-    req.user.id
+    //req.user.id - uncomment when you setup the admin to use the delete function
   ]
   pool.query(sqlQuery, sqlParams).then ((dbRes) => {
     if (dbRes.rows.length === 0) {
@@ -96,7 +99,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     .catch((err) => {
       console.log('Err in DELETE', err)
       res.sendStatus(500)
-    })
+    })}
 })
 
 module.exports = router;
