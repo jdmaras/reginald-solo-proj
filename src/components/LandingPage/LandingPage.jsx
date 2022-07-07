@@ -1,48 +1,24 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import ImageSlider from '../ImageSlider/ImageSlider';
+import { SliderData } from '../ImageSlider/SliderData';
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
-  const history = useHistory();
-
-  const onLogin = (event) => {
-    history.push('/login');
-  };
 
   return (
-    <div className="container">
-      <h2>{heading}</h2>
-
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-           Paragraph On Landing
-          </p>
-
-          <p>
-           Paragraph On Landing
-          </p>
-
-          <p>
-          Paragraph On Landing
-          </p>
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
-      </div>
+  <>
+  <div className='text-6xl font-bold text-center text-orange-400'>
+    <p>Reggie Miller Light</p>
+  </div>
+  <div className='text-xl font-bold text-center text-orange-300'>
+    <p className='hover:text-white'>Love of all things The Razor</p>
+  </div>
+    <div className="grid h-screen place-items-center -mt-14">
+    <ImageSlider slides={SliderData}/>
     </div>
+    </>
   );
 }
 

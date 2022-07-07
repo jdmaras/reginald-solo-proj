@@ -30,26 +30,27 @@ export const NavigationReg = () => {
                 
                 {/* mr - margin right / sm:text 4xl - text will be 3xl and if they switch the screen sizes, it adjusts (mostly a mobile type thing) */}
                 <h1 className='text-med font-bold mr-3 sm:text-4xl'>REGINALD</h1>
-                    {/* anything below a medium screen will hide in the drop down */}
                 <ul className='hidden md:flex '>
                   <Link to="/fanclub">
-                    <li>FAN CLUB</li>
+                  <button className='border-none bg-transparent text-black'><li>FAN CLUB</li></button>
                   </Link>
                   <Link to ="/inforeg">
-                    <li>INFO</li>
+                  <button className='border-none bg-transparent text-black'><li>INFO</li></button>
                   </Link>
                   <Link to="/merch">
-                    <li>MERCH</li>
+                  <button className='border-none bg-transparent text-black'><li>MERCH</li></button>
                   </Link>
                 </ul>
             </div>
+            <div className='flex space-x-4'>
               <Link to="/login">
-                <button className='border-none bg-transparent text-black mr-4'>SIGN IN</button>
+                <button className='border-none bg-transparent text-black mt-3'>SIGN IN</button>
               </Link>
             <div className='hidden md:flex pr-2'>
                 <Link to="/fanclub">
-                  <button className='px-8 py-3'>BECOME A FAN</button>
+                  <button className='px-6 py-3'>BECOME A FAN</button>
                 </Link>
+            </div>
             </div>
         </div>
     </div>

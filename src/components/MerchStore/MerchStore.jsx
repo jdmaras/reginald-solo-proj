@@ -12,12 +12,9 @@ function MerchStore() {
     //console.log ('What are the params', params)
     console.log('this is the merch', merch)
 
-
     useEffect(() => {
         getMerchDetails()
     }, [])
-
-
 
     const getMerchDetails = () => {
         dispatch({

@@ -14,35 +14,35 @@ function* getMerch(action) {
     }
 }
 
-// function* fetchCart() {
-//     try{
-//         const items = yield axios.get('/api/merch/cart')
-//         yield put({
-//             type: 'SET_CART',
-//             payload: items.data
-//         })
-//     }
-//     catch(err){
-//         console.log('err in FETCHCART', err)
-//     }
-// }
+function* fetchCart() {
+    try{
+        const items = yield axios.get('/api/merch/cart')
+        yield put({
+            type: 'SET_CART',
+            payload: items.data
+        })
+    }
+    catch(err){
+        console.log('err in FETCHCART', err)
+    }
+}
 
-// function* addCart(action){
-//     try {
-//         const items = yield axios.post('/api/merch/cart', action.payload)
-//         yield put ({
-//             type: 'FETCH_CART',
-//         })
-//     }
-//     catch(err) {
-//         console.log('Err', err)
-//     }
-// }
+function* addCart(action){
+    try {
+        const items = yield axios.post('/api/merch/cart', action.payload)
+        yield put ({
+            type: 'FETCH_CART',
+        })
+    }
+    catch(err) {
+        console.log('Err', err)
+    }
+}
 
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
-    // yield takeLatest('ADD_CART', addCart)
-    // yield takeLatest('FETCH_CART', fetchCart)
+    yield takeLatest('ADD_CART', addCart)
+    yield takeLatest('FETCH_CART', fetchCart)
 }
 
 export default merchSaga;

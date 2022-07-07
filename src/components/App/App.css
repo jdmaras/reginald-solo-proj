@@ -24,3 +24,53 @@ body {
     hover:bg-transparent hover:text-orange-500 rounded-md
   }
 }
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 400px;
+  border-radius: 8px;
+}
+
+.right-arrow{
+  position:absolute;
+  top: 50%;
+  right: 24px;
+  font-size: 3rem;
+  color: rgb(54, 5, 5);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow{
+  position:absolute;
+  top: 50%;
+  left: 24px;
+  font-size: 3rem;
+  color: rgb(54, 5, 5);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.slider{
+  width: 600px;
+  height: 700px;
+}
+.slide {
+  opacity: 0;
+  transition-duration: .5s ease;
+}
+.slide.active {
+  opacity: 1.5;
+  transition-duration: 1s;
+  transform: scale(1.1);
+}
+ul {
+  list-style-type: none;
+}
