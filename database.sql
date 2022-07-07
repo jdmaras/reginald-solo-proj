@@ -5,7 +5,7 @@
 -- Otherwise you will have errors!
 CREATE TABLE "user" (
 "id" SERIAL PRIMARY KEY,
-"admin" BOOLEAN,
+"admin" BOOLEAN DEFAULT FALSE,
 "username" VARCHAR(255) UNIQUE NOT NULL,
 "email" VARCHAR(255),
 "password" VARCHAR(255) NOT NULL,
@@ -18,13 +18,18 @@ CREATE TABLE "merch"(
 "product_name" VARCHAR,
 "product_type" VARCHAR,
 "size" VARCHAR,
-"price" INTEGER
+"price" DECIMAL (5,2)
 );
 
 CREATE TABLE "orders" (
 "id" SERIAL PRIMARY KEY,
 "user_id" INT REFERENCES "user",
 "product_id" INT REFERENCES "merch",
-"quantity" INTEGER,
-"order_total" INTEGER
+"quantity" INTEGER
 );
+
+DELETE FROM "merch" 
+WHERE id = 2;
+
+DROP TABLE "merch";
+DROP TABLE "orders";
