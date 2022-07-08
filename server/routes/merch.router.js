@@ -21,6 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 // POST moving things into carts - TESTED - WORKS
 router.post('/cart', rejectUnauthenticated, (req, res) =>{
+
   console.log('req.body', req.body)
   const sqlQuery = `
   INSERT INTO "orders"
@@ -63,16 +64,27 @@ router.get('/cart', (req, res) => {
 
 
 // Admin POST to add merch
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
+   if (req.user.admin) {
   const sqlQuery = `
   INSERT INTO "merch" 
   (img_url, product_name, product_type, size, price)
   VALUES ($1, $2, $3, $4, $5);
   `
-  const sqlParam = [
-    req.body
+  const sqlParams = [
+    req.body.img_url,
+    req.body.product_name,
+    req.body.product_type,
+    req.body.size,
+    req.body.price
   ]
-
+  pool.query(sqlQuery, sqlParams)
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('Failed POST in Admin MERCH post', err);
+    res.sendStatus(500);
+  })
+   }
 });
 
 //Admin Delete route
@@ -83,11 +95,9 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   WHERE id = $1
   RETURNING *;
   `
-  
   //prepared statement
   const sqlParams = [
     req.params.id,
-    //req.user.id - uncomment when you setup the admin to use the delete function
   ]
   pool.query(sqlQuery, sqlParams).then ((dbRes) => {
     if (dbRes.rows.length === 0) {

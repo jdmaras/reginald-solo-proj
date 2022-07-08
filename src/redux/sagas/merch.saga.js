@@ -39,7 +39,7 @@ function* checkoutCart(action){
         console.log('Err', err)
     }
 }
-
+//Delete item from DB - only can be used logged in as Admin
 function* deleteItem(action){
     console.log('in delete item')
     try{
@@ -53,11 +53,21 @@ function* deleteItem(action){
      })
 }
 
+function* addMerchToDB(action){
+    try{
+        yield axios.post('/api/merch', action.payload)
+    }
+    catch (err){
+        console.log('Err with Adding Merch Saga', err)
+    }
+}
+
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
     yield takeLatest('CHECKOUT_CART', checkoutCart)
     yield takeLatest('FETCH_CART', fetchCart)
     yield takeLatest('DELETE_ITEM', deleteItem)
+    yield takeLatest('REGISTER_MERCH_TO_DB', addMerchToDB)
 }
 
 export default merchSaga;

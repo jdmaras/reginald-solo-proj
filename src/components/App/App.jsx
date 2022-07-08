@@ -99,7 +99,12 @@ function App() {
           >
             <MerchCartView />
           </Route>
-
+            <Route
+            exact
+            path="/merchadminview"
+            >
+              <MerchAdminView />
+            </Route>
           <Route
             exact
             path="/registration"
