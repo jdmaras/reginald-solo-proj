@@ -6,18 +6,16 @@ import { useDispatch } from 'react-redux';
 function EditButton({itemId}){
     let history = useHistory();
     const dispatch = useDispatch()
+// fetch in useEffect
+// url params /merch/:id/edit
 
+//make a link and not event handler
     const handleClick = () => {
         dispatch({
             type: 'SET_MERCH_ITEM',
             payload: {id: itemId}
         })
     }
-
- 
-
-
-
 
     return(
         <>

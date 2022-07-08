@@ -78,8 +78,6 @@ function* editMerch(action){
         console.log(`err in edit merch saga`, err)
     }
 }
-
-
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
     yield takeLatest('CHECKOUT_CART', checkoutCart)

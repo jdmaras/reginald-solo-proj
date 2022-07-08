@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 export const MerchAdminView = () => {
   const merch = useSelector(store => store.merch)
   const dispatch = useDispatch()
-if(merch){
   const [imgUrl, setImgUrl] = useState('');
   const [productName, setProductName] = useState('');
   const [productType, setProductType] = useState('');
   const [size, setSize] = useState('');
   const [price, setPrice] = useState('');
-}else if (merch[0]){
-  const [imgUrl, setImgUrl] = useState(merch[0].imgUrl);
-  const [productName, setProductName] = useState(merch.productName);
-  const [productType, setProductType] = useState(merch.productType);
-  const [size, setSize] = useState(merch.size);
-  const [price, setPrice] = useState(merch.price);
-}
+
+
+//MAKE IN A SEPARATE COMPONENT
+//useParams import
+// also need useEffect
+
+//gives you back the object with the id
+// render inputs but set equal to values of state
 
 
 

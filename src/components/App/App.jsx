@@ -97,7 +97,7 @@ function App() {
           </Route>
             <Route
             exact
-            path="/merchadminview"
+            path="/merch/:id/edit"
             >
               <MerchAdminView />
             </Route>

@@ -10,6 +10,11 @@ FRIDAY!
 - Conditional Rendering buttons for admin view only
 
 
-Friday Edit Lecture
+Saturday
+- CSS 
+- About Story
+- Comment Code (more)
 
-- 
+stretch
+- send email when checkout?
+- admin view orders?
