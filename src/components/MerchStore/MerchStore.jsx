@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import AddToCart from './AddToCart';
 import DeleteButton from '../DeleteButton/DeleteButton';
+import EditButton from '../EditButton/EditButton';
 
 function MerchStore() {
     const dispatch = useDispatch();
@@ -27,23 +28,26 @@ function MerchStore() {
     }
   return (
     <>
+    <div className="text-3xl font-semibold">Welcome to the store?</div>
+    <div className='text-xl'>cart: {cart.length}</div>
     <div className='merchContainer'>
         <div className='merchCard'>
-            <h4>cart: {cart.length}</h4>
+        
             <ul>
                 {merch.map(item => {
                 return(
                     <li key={item.id}>
-                        {item.product_name}
+                        <div className='text-3xl font-bold'>{item.product_name}</div>
                         <img src={item.img_url} />
                         <div className='mt-2 mb-1'>
-                        {item.price}
+                        <div className='text-3xl font-semibold'>{item.price}</div>
                         </div>
                         
                         {/* grabbing the value of every item you click with the id={item.id} */}
                         <AddToCart item={item} />
                         <h1>NOTE: DELETE NEEDS TO CONDITIONAL TO BEING ONLY AVAILABLE FOR ADMIN VIEW</h1>
                         <DeleteButton itemId={item.id}/>
+                        <EditButton itemId={item.id}/>
                     </li>
                     )
                 })}

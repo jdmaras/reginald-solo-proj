@@ -8,3 +8,8 @@ FRIDAY!
 - Work on EDIT 
 - Need to figure out routes around pages
 - Conditional Rendering buttons for admin view only
+
+
+Friday Edit Lecture
+
+- 

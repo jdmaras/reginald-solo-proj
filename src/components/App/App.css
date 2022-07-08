@@ -25,7 +25,7 @@ body {
   }
   button {
     @apply text-white border bg-orange-400 border-orange-400
-    hover:bg-transparent hover:text-orange-500 rounded-md
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2
   }
 }
 .slider {
@@ -83,8 +83,12 @@ ul {
   flex-direction: row;
   justify-content: center;
 }
+.userContainer{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .merchCard{
-  
   width: 30em;
-
 }
