@@ -12,6 +12,7 @@ function MerchCartView(){
    addUpPrices
   },[cart])
 
+  // function to loop through and add up the price of merchandise to display how much the order will cost you 
   const appendToDb = () => {
     for(let i = 0; i<+cart.length; i++){
     dispatch({
@@ -19,13 +20,12 @@ function MerchCartView(){
       payload: cart[i]
     })
   }
+  //once the order is processed, this clears out what is in your checkout
     dispatch({
       type: 'CLEAR_CART',
     })
   }
   
-  
-
   //need to convert the string to a number
   function addUpPrices(cart){
     console.log('this is cart', cart)
@@ -37,18 +37,24 @@ function MerchCartView(){
   }
   
   return (
-    <div className='flex'>
-      <div className='content-center '>
-      <h2>MerchCartView</h2>
-      <h4>Cart: {cart.length} Price: ${addUpPrices(cart)}</h4>
+    <>
+    <div className='checkoutContainer'></div>
+    <div className="text-3xl font-semibold">Check Out</div>
+    <div className='text-xl'> Cart: {cart.length} </div>
+    <div className='text-xl'> Price: ${addUpPrices(cart)}</div>
+
+    <div className='merchContainer'>
+        <div className='merchCard'>
         <ul>
           {cart.map((item, i) => {
             return(
               <li key={item.id}>
-                {item.product_name}
+                <div className='text-3xl font-bold'>{item.product_name}</div>
                 <img src={item.img_url} />
-                {item.price}
-                    <button onClick={(i) => cart.splice(i,1)}>Remove</button>
+                <div className='text-3xl font-semibold'>{item.price}</div>
+                <br></br>
+                    <button className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={(i) => cart.splice(i,1)}>Remove From Cart</button>
               </li>
               )
             })}
@@ -57,6 +63,7 @@ function MerchCartView(){
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
     </div>
     </div>
+    </>
   )
 }
 

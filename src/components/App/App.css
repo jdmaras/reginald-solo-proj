@@ -8,6 +8,10 @@ body {
   display: flex;
   justify-content: center;
 }
+.checkoutContainer {
+  display: flex;
+  justify-content: center;
+}
 @tailwind base;
 
 @tailwind components;

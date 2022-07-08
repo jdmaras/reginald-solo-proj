@@ -5,15 +5,11 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import './App.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-
-
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-
 import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
 import MerchCartView from '../MerchCartView/MerchCartView';
 import MerchStore from '../MerchStore/MerchStore';
@@ -21,12 +17,11 @@ import { InfoReg } from '../InfoReg/InfoReg';
 import { NavigationReg } from '../NavigationReg/NavigationReg';
 import FanClub from '../FanClub/FanClub';
 import UserPage from '../UserPage/UserPage';
-
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +49,7 @@ function App() {
             path="/inforeg"
           >
             <InfoReg />
+
           </Route>
           <Route
             exact
