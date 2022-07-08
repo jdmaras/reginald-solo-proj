@@ -31,8 +31,9 @@ export const MerchAdminView = () => {
 //Dispatching all the inputs over to the saga
   
   return (
+    <div className='md:container md:mx-auto '>
     <form className="merchInputForm" onSubmit={appendMerchToDb}>
-    <h3>Merch Input Form</h3>
+    <div className="text-xl mb-2">Merch Input Form</div>
     <div>
       <label htmlFor="url">
         Image Url:
@@ -44,9 +45,10 @@ export const MerchAdminView = () => {
       />
        </label>
     </div>
+    <div className='my-2'>
     <div>
       <label htmlFor="product_name">
-        Product Name:
+        Product Name: 
       <input
       type="text"
       name="Product Name"
@@ -54,6 +56,7 @@ export const MerchAdminView = () => {
       onChange={(event) => setProductName(event.target.value)}
       />
        </label>
+    </div>
     </div>
     <div>
       <label htmlFor="product_type">
@@ -66,6 +69,7 @@ export const MerchAdminView = () => {
       />
        </label>
     </div>
+    <div className='my-2'>
     <div>
       <label htmlFor="size">
         Size: 
@@ -76,6 +80,7 @@ export const MerchAdminView = () => {
       onChange={(event) => setSize(event.target.value)}
       />
        </label>
+    </div>
     </div>
     <div>
       <label htmlFor="price">
@@ -90,8 +95,10 @@ export const MerchAdminView = () => {
        </label>
     </div>
     {/* forms you can put in an input incase you hit enter so that it submits */}
-      <input type="submit" value="submit" />
+      <input className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" value="submit" />
     </form>
+    </div>
    
 
   )

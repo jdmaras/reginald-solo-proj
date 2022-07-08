@@ -84,7 +84,8 @@ function RegisterForm() {
       </div>
       
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" name="submit" value="Register" />
       </div>
     </form>
   );

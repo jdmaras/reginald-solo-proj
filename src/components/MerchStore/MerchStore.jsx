@@ -56,7 +56,8 @@ function MerchStore() {
         
     </div>
     <div>
-        <Link to="/merchcartview">Proceed To Checkout</Link>
+        <Link to="/merchcartview" className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2">Proceed To Checkout</Link>
     </div>
     </>
   )

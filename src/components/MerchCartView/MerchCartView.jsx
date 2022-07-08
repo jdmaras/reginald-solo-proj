@@ -37,7 +37,8 @@ function MerchCartView(){
   }
   
   return (
-    <div>
+    <div className='flex'>
+      <div className='content-center '>
       <h2>MerchCartView</h2>
       <h4>Cart: {cart.length} Price: ${addUpPrices(cart)}</h4>
         <ul>
@@ -52,7 +53,9 @@ function MerchCartView(){
               )
             })}
         </ul>
-      <button onClick={appendToDb}>Checkout</button>
+      <button className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
+    </div>
     </div>
   )
 }

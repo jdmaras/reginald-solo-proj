@@ -12,7 +12,8 @@ function DeleteButton({itemId}){
     }
     return (
         <>
-        <button onClick={handleClick}>DELETE</button>
+        <button  className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={handleClick}>Delete</button>
         </>
     )
 }
