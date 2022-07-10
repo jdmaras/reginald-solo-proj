@@ -19,7 +19,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
 });
 
-//grab select id from database for the edit
+//grab select id from database for the edit with :id placeholder
 router.get('/:id', rejectUnauthenticated, (req,res) => {
   if (req.user.admin) {
   const sqlQuery = `
@@ -27,6 +27,7 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
   FROM "merch"
   WHERE id = $1
   `
+  //putting it in a bracket to nicely package the items 
   const sqlParams = [
     req.params.id,
   ]

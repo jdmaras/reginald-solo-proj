@@ -78,6 +78,15 @@ function* editMerch(action){
         console.log(`err in edit merch saga`, err)
     }
 }
+
+//PUT - sending the merch that was edited back to db and pulling down the edited info
+function* saveMerchEdit(action) {
+    yield axios.put(`/merch/${action.payload.id}/edit`, action.payload)
+    // Refresh the list after you made an edit by grabbing the merch from DB
+    yield put({
+        type: 'FETCH_MERCH'
+    })
+}
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
     yield takeLatest('CHECKOUT_CART', checkoutCart)
@@ -85,6 +94,7 @@ function* merchSaga() {
     yield takeLatest('DELETE_ITEM', deleteItem)
     yield takeLatest('REGISTER_MERCH_TO_DB', addMerchToDB)
     yield takeLatest('FETCH_MERCH_ITEM', editMerch)
+    yield takeLatest('SAVE_MERCH_EDIT', saveMerchEdit)
 }
 
 export default merchSaga;

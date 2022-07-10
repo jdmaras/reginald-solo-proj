@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import AddToCart from './AddToCart';
+import AddToCart from '../AddToCart/AddToCart';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import EditButton from '../EditButton/EditButton';
 
@@ -15,7 +15,6 @@ function MerchStore() {
     //console.log ('What are the params', params)
     console.log('this is the merch', merch)
 
-
     useEffect(() => {
         getMerchDetails()
     }, [])
@@ -23,7 +22,6 @@ function MerchStore() {
     const getMerchDetails = () => {
         dispatch({
             type: 'FETCH_MERCH',
-            //payload: params.id
         })
     }
   return (
@@ -34,7 +32,7 @@ function MerchStore() {
         <div className='merchCard'>
         
             <ul>
-                {merch.map(item => {
+                {merch[0] && merch.map(item => {
                 return(
                     <li key={item.id}>
                         <div className='text-3xl font-bold'>{item.product_name}</div>
@@ -47,7 +45,9 @@ function MerchStore() {
                         <AddToCart item={item} />
                         <h1>NOTE: DELETE NEEDS TO CONDITIONAL TO BEING ONLY AVAILABLE FOR ADMIN VIEW</h1>
                         <DeleteButton itemId={item.id}/>
+                        <Link to={`/merch/${item.id}/edit`}>
                         <EditButton itemId={item.id}/>
+                        </Link>
                     </li>
                     )
                 })}

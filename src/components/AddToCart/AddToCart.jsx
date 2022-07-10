@@ -3,7 +3,6 @@ function AddToCart({item}){
     const dispatch = useDispatch();
     const addToCart = () => {
      
-
         dispatch({
             type: 'ADD_CART',
             payload: {

@@ -6,26 +6,26 @@ import {
   Switch,
 } from 'react-router-dom';
 import './App.css';
-
 import { useDispatch, useSelector } from 'react-redux';
-import Footer from '../Footer/Footer';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import { MerchAdminView } from '../MerchAdminView/MerchAdminView';
-import MerchCartView from '../MerchCartView/MerchCartView';
-import MerchStore from '../MerchStore/MerchStore';
-import { InfoReg } from '../InfoReg/InfoReg';
-import { NavigationReg } from '../NavigationReg/NavigationReg';
+
 import FanClub from '../FanClub/FanClub';
-import UserPage from '../UserPage/UserPage';
+import Footer from '../Footer/Footer';
+import InfoReg from '../InfoReg/InfoReg';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
+import MerchAdminItemAdd  from '../MerchAdminItemAdd/MerchAdminItemAdd';
+import MerchAdminEdit from '../MerchAdminEdit/MerchAdminEdit';
+import MerchCartView from '../MerchCartView/MerchCartView';
+import MerchStore from '../MerchStore/MerchStore';
+import NavigationReg from '../NavigationReg/NavigationReg';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import UserPage from '../UserPage/UserPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 
 
 function App() {
   const dispatch = useDispatch();
-
   const user = useSelector(store => store.user);
 
   useEffect(() => {
@@ -95,12 +95,20 @@ function App() {
           >
             <MerchCartView />
           </Route>
+          
+          <Route 
+          exact 
+          path="/merch/:id/edit">
+            <MerchAdminEdit />
+          </Route>
+
             <Route
             exact
-            path="/merch/:id/edit"
+            path="/merchadd"
             >
-              <MerchAdminView />
+              <MerchAdminItemAdd />
             </Route>
+
           <Route
             exact
             path="/registration"
@@ -127,6 +135,7 @@ function App() {
               <LandingPage />
             }
           </Route>
+          
 
           {/* If none of the other routes matched, we will show a 404.
           <Route>

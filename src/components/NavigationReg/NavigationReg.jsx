@@ -4,7 +4,7 @@ import './NavigationReg.css';
 import { useSelector } from 'react-redux'
 
 
-export const NavigationReg = () => {
+function NavigationReg() {
   const user = useSelector((store) => store.user);
 
   return (
@@ -52,3 +52,4 @@ export const NavigationReg = () => {
   )
 }
 
+export default NavigationReg;

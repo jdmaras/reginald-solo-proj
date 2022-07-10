@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-export const MerchAdminView = () => {
+function MerchAdminItemAdd(){
   const merch = useSelector(store => store.merch)
   const dispatch = useDispatch()
   const [imgUrl, setImgUrl] = useState('');
@@ -9,16 +9,6 @@ export const MerchAdminView = () => {
   const [productType, setProductType] = useState('');
   const [size, setSize] = useState('');
   const [price, setPrice] = useState('');
-
-
-//MAKE IN A SEPARATE COMPONENT
-//useParams import
-// also need useEffect
-
-//gives you back the object with the id
-// render inputs but set equal to values of state
-
-
 
   const appendMerchToDb = (event) => {
     event.preventDefault();
@@ -39,7 +29,6 @@ export const MerchAdminView = () => {
     setPrice('');
   }
 //Dispatching all the inputs over to the saga
-  
   return (
     <div className='md:container md:mx-auto '>
     <form className="merchInputForm" onSubmit={appendMerchToDb}>
@@ -113,3 +102,4 @@ export const MerchAdminView = () => {
 
   )
 }
+export default MerchAdminItemAdd;

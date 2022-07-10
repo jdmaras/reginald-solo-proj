@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const InfoReg = () => {
+function InfoReg(){
   return (
     <div>
     <div>
@@ -13,3 +13,5 @@ export const InfoReg = () => {
     </div>
   )
 }
+
+export default InfoReg;
