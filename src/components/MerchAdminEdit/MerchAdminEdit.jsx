@@ -39,7 +39,8 @@ function MerchAdminEdit(){
 //gives you back the object with the id
 // render inputs but set equal to values of state
     return(
-        <div className='md:container md:mx-auto '>
+        <div className='inputContainer'>
+        <div className='inputCard'>
         <form className="merchInputForm" onSubmit={handleSubmit}>
         <div className="text-xl mb-2">Merch Input Form</div>
         <div>
@@ -120,6 +121,7 @@ function MerchAdminEdit(){
           <input className="text-white border mt-2 bg-orange-400 border-orange-400
         hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" value="submit" />
         </form>
+        </div>
         </div>
     )
 }

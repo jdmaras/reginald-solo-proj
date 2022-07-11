@@ -64,20 +64,19 @@ router.get('/cart', (req, res) => {
     })
 })
 
-// POST moving things into carts - TESTED - WORKS
+// POST moving things into DB - TESTED - WORKS
 router.post('/cart', rejectUnauthenticated, (req, res) =>{
 
   console.log('req.body', req.body)
   const sqlQuery = `
   INSERT INTO "orders"
-  (user_id, product_id, quantity)
-  VALUES ($1, $2, $3);
+  (user_id, product_id)
+  VALUES ($1, $2);
   `
   //the passport / session middleware is what makes you grab req.user 
   const sqlParams = [
     req.user.id,
     req.body.product_id,
-    req.body.quantity
   ]
   pool.query(sqlQuery, sqlParams)
   .then(dbRes => {
@@ -140,6 +139,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 // PUT route to put the 'edit' merch back into DB
 router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
+  if (req.user.admin) {
   const sqlQuery = `
   UPDATE "merch"
   SET img_url = $2,
@@ -162,7 +162,7 @@ router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
   .catch((err) => {
     console.log('Failed PUT in EDIT axios', err);
     res.sendStatus(500);
-  })
+  })}
 });
 
 module.exports = router;

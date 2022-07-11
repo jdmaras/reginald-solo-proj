@@ -30,12 +30,14 @@ function MerchAdminItemAdd(){
   }
 //Dispatching all the inputs over to the saga
   return (
-    <div className='md:container md:mx-auto '>
+    <>
+    <div className='inputContainer'>
+    <div className='inputCard'>
     <form className="merchInputForm" onSubmit={appendMerchToDb}>
-    <div className="text-xl mb-2">Merch Input Form</div>
+    <div className="text-xl mb-2 ">Merch Input Form</div>
     <div>
       <label htmlFor="url">
-        Image Url:
+        Image Url :
       <input
       type="text"
       name="Image Url"
@@ -47,7 +49,7 @@ function MerchAdminItemAdd(){
     <div className='my-2'>
     <div>
       <label htmlFor="product_name">
-        Product Name: 
+        Product Name : 
       <input
       type="text"
       name="Product Name"
@@ -59,7 +61,7 @@ function MerchAdminItemAdd(){
     </div>
     <div>
       <label htmlFor="product_type">
-        Product Type:
+        Product Type :
       <input
       type="text"
       name="Product Type"
@@ -71,7 +73,7 @@ function MerchAdminItemAdd(){
     <div className='my-2'>
     <div>
       <label htmlFor="size">
-        Size: 
+        Size : 
       <input
       type="text"
       name="Size"
@@ -83,7 +85,7 @@ function MerchAdminItemAdd(){
     </div>
     <div>
       <label htmlFor="price">
-        Price: 
+        Price : 
         {/* you already started doing everything as a string, don't stop now */}
       <input
       type="text"
@@ -98,6 +100,8 @@ function MerchAdminItemAdd(){
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" value="submit" />
     </form>
     </div>
+    </div>
+    </>
    
 
   )

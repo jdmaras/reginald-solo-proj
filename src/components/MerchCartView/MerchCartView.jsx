@@ -17,6 +17,7 @@ function MerchCartView(){
     for(let i = 0; i<+cart.length; i++){
     dispatch({
       type: 'CHECKOUT_CART',
+      //this is for posting one item at a time with [i]
       payload: cart[i]
     })
   }
@@ -39,12 +40,13 @@ function MerchCartView(){
   return (
     <>
     <div className='checkoutContainer'></div>
-    <div className="text-3xl font-semibold">Check Out</div>
-    <div className='text-xl'> Cart: {cart.length} </div>
-    <div className='text-xl'> Price: ${addUpPrices(cart)}</div>
+
 
     <div className='merchContainer'>
         <div className='merchCard'>
+          <div className="text-3xl font-semibold">Check Out</div>
+          <div className='text-xl'> Cart: {cart.length} </div>
+          <div className='text-xl'> Price: ${addUpPrices(cart)}</div>
         <ul>
           {cart.map((item, i) => {
             return(

@@ -41,7 +41,13 @@ function App() {
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
-
+          
+          <Route
+            exact
+            path="/home"
+          >
+              <LandingPage />
+          </Route>
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
@@ -122,21 +128,7 @@ function App() {
               <RegisterPage />
             }
           </Route>
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the Landing page
-              <LandingPage />
-            }
-          </Route>
           
-
           {/* If none of the other routes matched, we will show a 404.
           <Route>
             <h1>404</h1>

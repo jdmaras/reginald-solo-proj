@@ -13,7 +13,7 @@ function DeleteButton({itemId}){
     return (
         <>
         <button  className="text-white border mt-2 bg-orange-400 border-orange-400
-    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={handleClick}>Delete</button>
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2 mr-4" onClick={handleClick}>Delete Item</button>
         </>
     )
 }

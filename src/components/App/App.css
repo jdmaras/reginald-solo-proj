@@ -35,6 +35,29 @@ body {
   justify-content: center;
   align-items: center;
 }
+input[type="text"] { 
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 2px;
+  outline: none;
+  padding: 3px;
+}
+input[type="text"]:focus{
+  border-color: orange;
+  box-shadow: 0 0 4px 0 orange;
+}
+
+input[type="password"] { 
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 2px;
+  outline: none;
+  padding: 3px;
+}
+input[type="password"]:focus{
+  border-color: orange;
+  box-shadow: 0 0 4px 0 orange;
+}
 
 .image {
   width: 400px;
@@ -89,6 +112,15 @@ ul {
   justify-content: center;
   align-items: center;
 }
+.inputContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.inputCard{
+  width: 25em;
+}
+
 .merchCard{
   width: 30em;
 }
