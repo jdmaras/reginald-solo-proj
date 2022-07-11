@@ -11,6 +11,26 @@ const merchReducer = (state = [], action) => {
                 ...state,
                 ...action.payload,
             };
+        case 'UPDATE_PRODUCT_NAME':
+            return {
+                ...state,
+                ...action.payload,
+                };
+        case 'UPDATE_PRODUCT_TYPE':
+            return {
+                ...state,
+                ...action.payload,
+                };
+        case 'UPDATE_SIZE':
+            return {
+                ...state,
+                ...action.payload,
+                };
+        case 'UPDATE_PRICE':
+            return {
+                ...state,
+                ...action.payload,
+                };
         default:
             return state;
         

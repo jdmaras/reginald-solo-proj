@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import AddToCart from '../AddToCart/AddToCart';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import EditButton from '../EditButton/EditButton';
+import MerchAdminItemAdd from '../MerchAdminItemAdd/MerchAdminItemAdd';
 
 function MerchStore() {
     const dispatch = useDispatch();
@@ -43,10 +44,13 @@ function MerchStore() {
                         
                         {/* grabbing the value of every item you click with the id={item.id} */}
                         <AddToCart item={item} />
-                        <h1>NOTE: DELETE NEEDS TO CONDITIONAL TO BEING ONLY AVAILABLE FOR ADMIN VIEW</h1>
+                        <h1>NOTE: DELETE / EDIT / ADD NEED A CONDITIONAL TO BEING ONLY AVAILABLE FOR ADMIN VIEW</h1>
                         <DeleteButton itemId={item.id}/>
                         <Link to={`/merch/${item.id}/edit`}>
                         <EditButton itemId={item.id}/>
+                        </Link>
+                        <Link to="/merchadd">
+                        <button className='px-2 py-2'>Add Merch</button>
                         </Link>
                     </li>
                     )

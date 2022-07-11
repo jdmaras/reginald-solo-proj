@@ -81,7 +81,7 @@ function* editMerch(action){
 
 //PUT - sending the merch that was edited back to db and pulling down the edited info
 function* saveMerchEdit(action) {
-    yield axios.put(`/merch/${action.payload.id}/edit`, action.payload)
+    yield axios.put(`/api/merch/${action.payload.id}/edit`, action.payload)
     // Refresh the list after you made an edit by grabbing the merch from DB
     yield put({
         type: 'FETCH_MERCH'

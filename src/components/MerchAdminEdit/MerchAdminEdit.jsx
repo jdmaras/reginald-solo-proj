@@ -48,10 +48,10 @@ function MerchAdminEdit(){
           <input
           type="text"
           name="Image Url"
-          value={merch.imgUrl}
+          value={merch.img_url}
           onChange={(event) => dispatch({
             type: 'UPDATE_IMGURL',
-            payload: { imgUrl: event.target.value}
+            payload: { img_url : event.target.value}
           })}
           />
            </label>
@@ -63,10 +63,10 @@ function MerchAdminEdit(){
           <input
           type="text"
           name="Product Name"
-          value={merch.productName}
+          value={merch.product_name}
           onChange={(event) => dispatch({
             type: 'UPDATE_PRODUCT_NAME',
-            payload: { productName: event.target.value}
+            payload: { product_name: event.target.value}
           })}
           />
            </label>
@@ -78,10 +78,10 @@ function MerchAdminEdit(){
           <input
           type="text"
           name="Product Type"
-          value={merch.productType}
+          value={merch.product_type}
           onChange={(event) => dispatch({
             type: 'UPDATE_PRODUCT_TYPE',
-            payload: { productType: event.target.value}
+            payload: { product_type: event.target.value}
           })}
           />
            </label>

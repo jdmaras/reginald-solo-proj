@@ -35,7 +35,8 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
     if (dbRes.rows.length === 0) {
       res.sendStatus(404)
     } else{
-      res.sendStatus(200)
+      // this sends the 1 item when you put the [0]
+      res.send(dbRes.rows[0])
     }
     })
     .catch((err) => {
@@ -136,5 +137,32 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })}
 })
+
+// PUT route to put the 'edit' merch back into DB
+router.put('/:id/edit', rejectUnauthenticated, (req, res) => {
+  const sqlQuery = `
+  UPDATE "merch"
+  SET img_url = $2,
+  product_name = $3,
+  product_type = $4,
+  size = $5,
+  price = $6
+  WHERE id = $1;
+  `
+  const sqlParams = [
+    req.params.id,
+    req.body.img_url,
+    req.body.product_name,
+    req.body.product_type,
+    req.body.size,
+    req.body.price
+  ]
+  pool.query(sqlQuery, sqlParams)
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('Failed PUT in EDIT axios', err);
+    res.sendStatus(500);
+  })
+});
 
 module.exports = router;
