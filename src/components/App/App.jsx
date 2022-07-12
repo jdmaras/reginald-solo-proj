@@ -22,9 +22,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UserPage from '../UserPage/UserPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-// API_KEY = 
-// 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
-
 
 function App() {
   const dispatch = useDispatch();
