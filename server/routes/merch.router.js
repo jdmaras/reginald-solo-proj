@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const sendThatEmail = require('../../SendGrid/SendGrid')
 const { rejectUnauthenticated } = require('../modules/authentication-middleware')
 
 // GET - merch to show in store TESTED - WORKS
@@ -32,6 +33,7 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
     req.params.id
   ]
   pool.query(sqlQuery, sqlParams).then ((dbRes) => {
+    // if there isn't anything to change, you get a 404
     if (dbRes.rows.length === 0) {
       res.sendStatus(404)
     } else{
@@ -65,7 +67,7 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
 // })
 
 // POST moving things into DB - TESTED - WORKS
-router.post('/cart', rejectUnauthenticated, (req, res) =>{
+router.post('/cart', rejectUnauthenticated, async (req, res) =>{
 
   console.log('req.body', req.body)
   const sqlQuery = `
@@ -78,14 +80,22 @@ router.post('/cart', rejectUnauthenticated, (req, res) =>{
     req.user.id,
     req.body.product_id,
   ]
-  pool.query(sqlQuery, sqlParams)
+  try{
+    for(let item of req.body.cart){
+  await pool.query(sqlQuery, [req.user.id, item.product_id])
   .then(dbRes => {
-    res.sendStatus(201)
+  
   })
   .catch(err => {
     console.log('error in POST adding to cart', err)
     res.sendStatus(500)
-  });
+  })}}
+
+  catch(err) {
+    console.log('this is an err', err)
+  }
+  //req.body.cart will have the items in your cart and you are sending those items through in the email of what they are buying
+  sendThatEmail(req.body.cart)
 })
 
 // Admin POST to add merch

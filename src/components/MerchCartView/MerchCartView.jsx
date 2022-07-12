@@ -14,17 +14,15 @@ function MerchCartView(){
 
   // function to loop through and add up the price of merchandise to display how much the order will cost you 
   const appendToDb = () => {
-    for(let i = 0; i<= cartItems.length; i++){
     dispatch({
       type: 'CHECKOUT_CART',
       //posting one item at a time with [i]
-      payload: cartItems[i]
+      payload: {cart: cartItems}
     })
-  }
-  //once the order is processed, this clears out what is in your checkout
-  //   dispatch({
-  //     type: 'CLEAR_CART',
-  //   })
+  // once the order is processed, this clears out what is in your checkout
+    dispatch({
+      type: 'CLEAR_CART',
+    })
    }
   
   //need to convert the string to a number
@@ -77,5 +75,3 @@ function MerchCartView(){
 }
 
 export default MerchCartView;
-
-// THIS HAS TO POST! THE ORDER UPON CHECKOUT
