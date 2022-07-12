@@ -1,17 +1,12 @@
 import React, {useState} from 'react';
-import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 import './NavigationReg.css';
 import { useSelector } from 'react-redux'
 
 
-export const NavigationReg = () => {
+function NavigationReg() {
   const user = useSelector((store) => store.user);
 
-  const [nav, setNav ] = useState(false)
-    // when you click the handle click, it sets to opposite of false that the state is set at
-    // then it drops down the mobile side app
-    const handleClick = () => setNav(!nav)
   return (
     <div className='w-screen h-[100px] my-10 bg-orange-300 drop-shadow-lg'>
         {/* this is the container px-10 is the padding on each side to be 10 */}
@@ -21,7 +16,7 @@ export const NavigationReg = () => {
               <Link to="/home">
                 <div className='w-24 relative'>
                     <img src="https://i.imgur.com/UCmrBSS.png" />
-                        <div className="opacity-0 hover:opacity-100 duration-300 absolute mt-14 inset-2 items-center text-2xl p-4 text-orange-400 font-bold">
+                        <div className="opacity-0 hover:opacity-100 duration-300 absolute mt-14 inset-2 items-center text-2xl p-4 text-black font-bold">
                             <p className='homeText'>HOME</p>
                         </div>
                 
@@ -57,3 +52,4 @@ export const NavigationReg = () => {
   )
 }
 
+export default NavigationReg;

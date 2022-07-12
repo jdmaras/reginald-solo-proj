@@ -1,10 +1,14 @@
-.homeText{
-  text-shadow: rgb(0, 0, 0) -2px 5px 20px;
+.homeText:hover {
+  text-shadow: #ffadad 5px 0 10px;
 }
 body {
-  background-color: whitesmoke;
+  background-color: #F2CEA2;
 }
 .registerFormContainer{
+  display: flex;
+  justify-content: center;
+}
+.checkoutContainer {
   display: flex;
   justify-content: center;
 }
@@ -21,7 +25,7 @@ body {
   }
   button {
     @apply text-white border bg-orange-400 border-orange-400
-    hover:bg-transparent hover:text-orange-500 rounded-md
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2
   }
 }
 .slider {
@@ -30,6 +34,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+input[type="text"] { 
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 2px;
+  outline: none;
+  padding: 3px;
+}
+input[type="text"]:focus{
+  border-color: orange;
+  box-shadow: 0 0 4px 0 orange;
+}
+
+input[type="password"] { 
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 2px;
+  outline: none;
+  padding: 3px;
+}
+input[type="password"]:focus{
+  border-color: orange;
+  box-shadow: 0 0 4px 0 orange;
 }
 
 .image {
@@ -74,13 +101,33 @@ body {
 ul {
   list-style-type: none;
 }
+.merchCard{
+  width: 30em;
+ 
+  justify-content: center;
+}
 .merchContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-count: 3;
+  width: 100%;
+  justify-content: center;
+  
+
+}
+.userContainer{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputContainer{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.merchCard{
-  
-  width: 30em;
-
+.inputCard{
+  width: 25em;
 }
+

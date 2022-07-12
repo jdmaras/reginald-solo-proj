@@ -25,8 +25,10 @@ function LoginForm() {
   }; // end login
 
   return (
+    <div className='inputContainer'>
+    <div className='inputCard'>
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <div className="text-3xl">Login</div>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -57,9 +59,12 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="btn text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" name="submit" value="Log In" />
       </div>
     </form>
+    </div>
+    </div>
   );
 }
 

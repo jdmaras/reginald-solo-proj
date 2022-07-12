@@ -3,7 +3,6 @@ function AddToCart({item}){
     const dispatch = useDispatch();
     const addToCart = () => {
      
-
         dispatch({
             type: 'ADD_CART',
             payload: {
@@ -17,7 +16,8 @@ function AddToCart({item}){
 
     return(
         <>
-        <button id={item.id} onClick={addToCart}>Add To Cart</button>
+        <button className="text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" id={item.id} onClick={addToCart}>Add To Cart</button>
         </>
     )
 }

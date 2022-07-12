@@ -49,7 +49,7 @@ function RegisterForm() {
         <label htmlFor="email">
           Email:
           <input
-            type="email"
+            type="text"
             name="email"
             value={email}
             required
@@ -74,7 +74,7 @@ function RegisterForm() {
         <label htmlFor="address">
           Address:
           <input
-            type="address"
+            type="text"
             name="address"
             value={address}
             required
@@ -84,7 +84,8 @@ function RegisterForm() {
       </div>
       
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn text-white border mt-2 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" name="submit" value="Register" />
       </div>
     </form>
   );
