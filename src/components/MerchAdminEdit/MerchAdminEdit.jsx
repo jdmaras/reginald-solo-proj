@@ -11,6 +11,7 @@ function MerchAdminEdit(){
     const merch = useSelector(store => store.merch);
 
     function handleSubmit(event){
+      //prevent the page from refreshing when you use forms
         event.preventDefault();
         dispatch({
             type: 'SAVE_MERCH_EDIT',
@@ -24,17 +25,12 @@ function MerchAdminEdit(){
         dispatch ({
             //grab that merch item with the type
             // payload is the id of what item you're clicking on
-            type: 'FETCH_MERCH_ITEM',
+            type: 'FETCH_MERCH_ITEM_TO_EDIT',
             // needs to be sent as object with id as property
-            payload: {id: params.id}
+            payload: {id: params.id }
         })
         //calling params.id allows you to change the id in the top to move pages
     }, [params.id])
-
-
-
-//useParams import
-// also need useEffect
 
 //gives you back the object with the id
 // render inputs but set equal to values of state
@@ -42,7 +38,7 @@ function MerchAdminEdit(){
         <div className='inputContainer'>
         <div className='inputCard'>
         <form className="merchInputForm" onSubmit={handleSubmit}>
-        <div className="text-xl mb-2">Merch Input Form</div>
+        <div className="text-xl mb-2">Merch Edit Form</div>
         <div>
           <label htmlFor="url">
             Image Url:

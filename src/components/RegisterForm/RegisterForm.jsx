@@ -49,7 +49,7 @@ function RegisterForm() {
         <label htmlFor="email">
           Email:
           <input
-            type="email"
+            type="text"
             name="email"
             value={email}
             required
@@ -74,7 +74,7 @@ function RegisterForm() {
         <label htmlFor="address">
           Address:
           <input
-            type="address"
+            type="text"
             name="address"
             value={address}
             required

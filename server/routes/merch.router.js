@@ -29,7 +29,7 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
   `
   //putting it in a bracket to nicely package the items 
   const sqlParams = [
-    req.params.id,
+    req.params.id
   ]
   pool.query(sqlQuery, sqlParams).then ((dbRes) => {
     if (dbRes.rows.length === 0) {
@@ -40,29 +40,29 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
     }
     })
     .catch((err) => {
-      console.log('Err in DELETE', err)
+      console.log('Err in GET BY ID', err)
       res.sendStatus(500)
     })}
 })
 
 // this is grabbing what is in the cart to append
-router.get('/cart', (req, res) => {
-  const sqlQuery = `
-    SELECT *
-    FROM orders
-    WHERE user_id = $1
-  `
-  const sqlParams = [req.user.id]
+// router.get('/cart', (req, res) => {
+//   const sqlQuery = `
+//     SELECT *
+//     FROM orders
+//     WHERE user_id = $1
+//   `
+//   const sqlParams = [req.user.id]
 
-  pool.query(sqlQuery, sqlParams)
-    .then(dbRes => {
-      // when grabbing from db it is a row of info
-      res.send(dbRes.rows)
-    })
-    .catch(err => {
-      console.log('Failed to GET cart', err)
-    })
-})
+//   pool.query(sqlQuery, sqlParams)
+//     .then(dbRes => {
+//       // when grabbing from db it is a row of info
+//       res.send(dbRes.rows)
+//     })
+//     .catch(err => {
+//       console.log('Failed to GET cart', err)
+//     })
+// })
 
 // POST moving things into DB - TESTED - WORKS
 router.post('/cart', rejectUnauthenticated, (req, res) =>{
@@ -114,6 +114,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 //Admin Delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('req.params.id', req.params.id)
   if (req.user.admin) {
   const sqlQuery = `
   DELETE FROM "merch" 
@@ -129,6 +130,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(404)
     } else{
       res.sendStatus(200)
+      
     }
     })
     .catch((err) => {

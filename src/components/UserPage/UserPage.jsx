@@ -6,10 +6,12 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   return (
-    <div className="userContainer">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+    <div className='inputContainer'>
+    <div className='inputCard'>
+      <div className='text-2xl my-2'>Welcome, {user.username}!</div>
+      <div className='text-2xl my-2'>Your User ID is: {user.id}</div>
       <LogOutButton className="btn" />
+    </div>
     </div>
   );
 }

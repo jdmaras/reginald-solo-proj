@@ -14,25 +14,13 @@ function* getMerch(action) {
         console.log('Error merch.saga GET', err)
     }
 }
-//
-function* fetchCart() {
-    try{
-        const items = yield axios.get('/api/merch/cart')
-        yield put({
-            type: 'SET_CART',
-            payload: items.data
-        })
-    }
-    catch(err){
-        console.log('err in FETCHCART', err)
-    }
-}
+
 //
 function* checkoutCart(action){
     try {
         const items = yield axios.post('/api/merch/cart', action.payload)
         yield put ({
-            type: 'FETCH_CART',
+            type: 'CLEAR_CART',
         })
     }
     catch(err) {
@@ -63,10 +51,10 @@ function* addMerchToDB(action){
     }
 }
 //function grabs items details for the edit
-function* editMerch(action){
+function* fetchMerchItemToEdit(action){
     console.log('in edit saga')
     try{
-        //getting get request  and setting res equal to what its finding for that id
+        //GET request and setting res equal to what its finding for that id
        const res = yield axios.get(`/api/merch/${action.payload.id}`);
        yield put({
         //merch item is then setting to get the payload of "res.data"
@@ -90,10 +78,9 @@ function* saveMerchEdit(action) {
 function* merchSaga() {
     yield takeLatest('FETCH_MERCH', getMerch)
     yield takeLatest('CHECKOUT_CART', checkoutCart)
-    yield takeLatest('FETCH_CART', fetchCart)
     yield takeLatest('DELETE_ITEM', deleteItem)
     yield takeLatest('REGISTER_MERCH_TO_DB', addMerchToDB)
-    yield takeLatest('FETCH_MERCH_ITEM', editMerch)
+    yield takeLatest('FETCH_MERCH_ITEM_TO_EDIT', fetchMerchItemToEdit)
     yield takeLatest('SAVE_MERCH_EDIT', saveMerchEdit)
 }
 

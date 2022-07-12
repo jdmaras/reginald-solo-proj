@@ -37,9 +37,10 @@ function MerchStore() {
         <div className="text-3xl font-semibold">Welcome to the store?</div>
         <div className='text-xl'>Cart: {cart.length}</div>
             <ul>
-                {merch[0] && merch.map(item => {
+                {merch[0] && merch.map((item, i) => {
                 return(
-                    <li key={item.id}>
+                    // have to make that key unique, so "i"
+                    <li key={i}>
                         <div className='text-3xl font-bold'>{item.product_name}</div>
                         <img src={item.img_url} />
                         <div className='mt-2 mb-1'>
@@ -48,10 +49,12 @@ function MerchStore() {
                         
                         {/* grabbing the value of every item you click with the id={item.id} */}
                         <AddToCart item={item} />
-                        <div class="text-2xl">Administrative Powers Activated</div>
+                        <br></br>
                         {/* user must be logged in as an admin in order to see these buttons */}
                         {user.admin && (
                             <>
+                            <div className="text-2xl mt-2">Administrative Powers Activated</div>
+                            <br></br>
                         <DeleteButton itemId={item.id}/>
                         <Link to={`/merch/${item.id}/edit`}>
                         <EditButton itemId={item.id}/>
@@ -64,11 +67,13 @@ function MerchStore() {
                 })}
                 
             </ul>
-            <Link to="/merchcartview" className="text-white border mt-2 bg-orange-400 border-orange-400
+            <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2">Proceed To Checkout</Link>
+            {user.admin && (
             <Link to="/merchadd">
             <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
             </Link>
+            )}
         </div>
 
     </div>

@@ -101,10 +101,20 @@ input[type="password"]:focus{
 ul {
   list-style-type: none;
 }
+.merchCard{
+  width: 30em;
+ 
+  justify-content: center;
+}
 .merchContainer{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  column-count: 3;
+  width: 100%;
   justify-content: center;
+  
+
 }
 .userContainer{
   margin:auto;
@@ -121,6 +131,3 @@ ul {
   width: 25em;
 }
 
-.merchCard{
-  width: 30em;
-}
