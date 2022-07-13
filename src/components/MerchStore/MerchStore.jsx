@@ -30,15 +30,18 @@ function MerchStore() {
 
   return (
     <>
-    <div className='merchContainer'>
-        <div className='merchCard'>
+    
+        <div className='inputContainer'>
+        <div className='inputCard'>
         <div className="text-3xl font-semibold">Welcome to the store?</div>
-        <div className='text-xl'>Cart: {cart.length}</div>
-        
+        <div className='text-xl ml-28 mb-6'>Cart: {cart.length}</div>
+        </div>
+        </div>
+        <div className='merchContainer'>
                 {merch[0] && merch.map((item, i) => {
                 return(
                     // have to make that key unique, so "i"
-                    <div key={i}>
+                    <div className='merchCard' key={i}>
                         <div className='text-3xl font-bold'>{item.product_name}</div>
                         <img src={item.img_url} />
                         <div className='mt-2 mb-1'>
@@ -65,16 +68,20 @@ function MerchStore() {
                 })}
                 
            
-            <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
-    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2">Proceed To Checkout</Link>
+            
             {user.admin && (
             <Link to="/merchadd">
-            <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
+           
             </Link>
             )}
         </div>
-
-    </div>   
+        <div className='inputContainer mt-4'>
+        <div className="inputCard">
+        <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
+    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-3">Proceed To Checkout</Link>
+        <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
+        </div>
+        </div>
     </>
   )
 }

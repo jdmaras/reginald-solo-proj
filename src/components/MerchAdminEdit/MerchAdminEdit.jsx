@@ -1,7 +1,6 @@
 import { useDispatch , useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import {useEffect } from 'react';
-import axios from 'axios';
 
 
 function MerchAdminEdit(){
@@ -20,13 +19,13 @@ function MerchAdminEdit(){
         //once you send the edit, it will bring you back to the merch page
         history.push('/merch')
     }
-
     useEffect (() => {
         dispatch ({
-            //grab that merch item with the type
+            // upon page load, FETCH the merch of the /:id you're clicking on
             // payload is the id of what item you're clicking on
             type: 'FETCH_MERCH_ITEM_TO_EDIT',
             // needs to be sent as object with id as property
+            // this is useParams hook - grab that id
             payload: {id: params.id }
         })
         //calling params.id allows you to change the id in the top to move pages
