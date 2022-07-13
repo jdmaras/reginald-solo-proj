@@ -45,10 +45,10 @@ function MerchCartView(){
           <div className="text-3xl font-semibold">Check Out</div>
           <div className='text-xl'> Cart: {cartItems.length} </div>
           <div className='text-xl'> Price: ${addUpPrices(cartItems)}</div>
-        <ul>
+        <div>
           {cartItems.map((item, i) => {
             return(
-              <li key={i}>
+              <div key={i}>
                 <div className='text-3xl font-bold'>{item.product_name}</div>
                 <img src={item.img_url} />
                 <div className='text-3xl font-semibold'>{item.price}</div>
@@ -62,10 +62,10 @@ function MerchCartView(){
             })
             
           }}>Remove From Cart</button>
-              </li>
+              </div>
               )
             })}
-        </ul>
+        </div>
       <button className="text-white border mt-2 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
     </div>

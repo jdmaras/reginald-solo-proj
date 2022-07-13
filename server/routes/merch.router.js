@@ -69,33 +69,28 @@ router.get('/:id', rejectUnauthenticated, (req,res) => {
 // POST moving things into DB - TESTED - WORKS
 router.post('/cart', rejectUnauthenticated, async (req, res) =>{
 
-  console.log('req.body', req.body)
   const sqlQuery = `
   INSERT INTO "orders"
   (user_id, product_id)
   VALUES ($1, $2);
   `
   //the passport / session middleware is what makes you grab req.user 
-  const sqlParams = [
-    req.user.id,
-    req.body.product_id,
-  ]
   try{
-    for(let item of req.body.cart){
-  await pool.query(sqlQuery, [req.user.id, item.product_id])
-  .then(dbRes => {
-  
-  })
-  .catch(err => {
-    console.log('error in POST adding to cart', err)
-    res.sendStatus(500)
-  })}}
-
-  catch(err) {
-    console.log('this is an err', err)
+      //looping through all my items in the cart that are being sent
+      for(let item of req.body.cart){
+      await pool.query(sqlQuery, [req.user.id, item.product_id])
+      //await doesn't need a .then because you're already waiting
+     
   }
   //req.body.cart will have the items in your cart and you are sending those items through in the email of what they are buying
   sendThatEmail(req.body.cart)
+  
+}
+  catch(err) {
+    console.log('this is an err', err)
+    res.sendStatus(500)
+  }
+  
 })
 
 // Admin POST to add merch

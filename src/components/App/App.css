@@ -103,18 +103,17 @@ ul {
 }
 .merchCard{
   width: 30em;
- 
   justify-content: center;
+  background-color: blue;
+  stroke: black;
 }
 .merchContainer{
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  column-count: 3;
+  flex-grow: 1;
   width: 100%;
-  justify-content: center;
-  
-
+  justify-content: space-between;
+  background-color: #ffadad;
 }
 .userContainer{
   margin:auto;

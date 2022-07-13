@@ -28,19 +28,17 @@ function MerchStore() {
         })
     }
 
-   
   return (
     <>
-   
     <div className='merchContainer'>
         <div className='merchCard'>
         <div className="text-3xl font-semibold">Welcome to the store?</div>
         <div className='text-xl'>Cart: {cart.length}</div>
-            <ul>
+        
                 {merch[0] && merch.map((item, i) => {
                 return(
                     // have to make that key unique, so "i"
-                    <li key={i}>
+                    <div key={i}>
                         <div className='text-3xl font-bold'>{item.product_name}</div>
                         <img src={item.img_url} />
                         <div className='mt-2 mb-1'>
@@ -62,11 +60,11 @@ function MerchStore() {
                         
                         </>
                         )}
-                    </li>
+                    </div>
                     )
                 })}
                 
-            </ul>
+           
             <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2">Proceed To Checkout</Link>
             {user.admin && (
@@ -76,12 +74,7 @@ function MerchStore() {
             )}
         </div>
 
-    </div>
-    <div>
-        
-    </div>
-    
-       
+    </div>   
     </>
   )
 }
