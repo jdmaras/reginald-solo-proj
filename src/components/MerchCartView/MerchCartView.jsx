@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import swal from 'sweetalert';
-import RegThanksBud from '../../Images/REGGIE_BUD.PNG'
+import { Link } from 'react-router-dom';
+import swal from 'sweetalert2';
+
 
 
 function MerchCartView(){
@@ -29,12 +30,9 @@ function MerchCartView(){
    }
 
    function checkoutAlert(){
-        swal({
-          title: "THANKS BUD!",
-          PADDING: '10em',
-          icon: 'success',
-          //imageURL: 'https://i.imgur.com/2FxZVw0.png',
-          text: "You ordered the stuff!",
+        swal.fire({
+          title: "Your order details were sent to your email!",
+          html: "<div style='width: 50&; display: flex; justify-content: center;'><img src='https://i.imgur.com/Odj5saj.png' /></div>",
           backdrop: `
             url('https://i.imgur.com/2FxZVw0.png')
             center top
@@ -83,8 +81,10 @@ function MerchCartView(){
               )
             })}
         </div>
+        <Link to="/home">
       <button className="text-white border mt-2 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
+    </Link>
     </div>
     </div>
     </>

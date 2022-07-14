@@ -71,7 +71,7 @@ function MerchStore() {
             
             {user.admin && (
             <Link to="/merchadd">
-           
+           <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
             </Link>
             )}
         </div>
@@ -79,7 +79,7 @@ function MerchStore() {
         <div className="inputCard">
         <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-3">Proceed To Checkout</Link>
-        <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
+        
         </div>
         </div>
     </>
