@@ -83,7 +83,7 @@ router.post('/cart', rejectUnauthenticated, async (req, res) =>{
      
   }
   //req.body.cart will have the items in your cart and you are sending those items through in the email of what they are buying
-  sendThatEmail(req.body.cart)
+  sendThatEmail(req.body.cart, req.user)
   
 }
   catch(err) {

@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react'
-//import { SweetAlert } from 'sweetalert/typings/core';
+import { useEffect } from 'react';
+import swal from 'sweetalert';
+import RegThanksBud from '../../Images/REGGIE_BUD.PNG'
+
 
 function MerchCartView(){
   const cartItems = useSelector(store => store.cart)
@@ -23,6 +25,21 @@ function MerchCartView(){
     dispatch({
       type: 'CLEAR_CART',
     })
+    checkoutAlert()
+   }
+
+   function checkoutAlert(){
+        swal({
+          title: "THANKS BUD!",
+          PADDING: '10em',
+          icon: 'success',
+          //imageURL: 'https://i.imgur.com/2FxZVw0.png',
+          text: "You ordered the stuff!",
+          backdrop: `
+            url('https://i.imgur.com/2FxZVw0.png')
+            center top
+          `
+        })
    }
   
   //need to convert the string to a number
