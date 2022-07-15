@@ -8,7 +8,7 @@ function UserPage() {
   return (
     <div className='inputContainer'>
     <div className='inputCard'>
-      <div className='text-2xl my-2'>Welcome, {user.username}!</div>
+      <div className='text-3xl my-2'>Welcome Razor Blade, {user.username}!</div>
       <div className='text-2xl my-2'>Your User ID is: {user.id}</div>
       <LogOutButton className="btn" />
     </div>

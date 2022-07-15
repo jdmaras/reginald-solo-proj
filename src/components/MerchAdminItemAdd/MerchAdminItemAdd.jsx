@@ -28,13 +28,21 @@ function MerchAdminItemAdd(){
     setSize('');
     setPrice('');
   }
+
+  function autoFillMerch(){
+    setImgUrl('https://i.imgur.com/Ici1iIG.jpg');
+    setProductName('16 Bit Reggie XL')
+    setProductType('Shirt');
+    setSize('XL');
+    setPrice('20.00');
+  }
 //Dispatching all the inputs over to the saga
   return (
     <>
     <div className='inputContainer'>
     <div className='inputCard'>
     <form className="merchInputForm" onSubmit={appendMerchToDb}>
-    <div className="text-xl mb-2 ">Merch Input Form</div>
+    <div className="text-xl mb-2 " onClick={autoFillMerch}>Merch Input Form</div>
     <div>
       <label htmlFor="url">
         Image Url :

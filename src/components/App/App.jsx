@@ -88,12 +88,12 @@ function App() {
               <LoginPage />
             }
           </Route>
-          <Route
+          <ProtectedRoute
           exact
           path="/merch"
           >
             <MerchStore />
-          </Route>
+          </ProtectedRoute>
           <Route
           exact
           path="/merchcartview"
@@ -107,12 +107,12 @@ function App() {
             <MerchAdminEdit />
           </Route>
 
-            <Route
+            <ProtectedRoute
             exact
             path="/merchadd"
             >
               <MerchAdminItemAdd />
-            </Route>
+            </ProtectedRoute>
 
           <Route
             exact
