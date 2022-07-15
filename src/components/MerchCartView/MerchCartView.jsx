@@ -52,18 +52,17 @@ function MerchCartView(){
   
   return (
     <>
-    <div className='checkoutContainer'></div>
-
-
-    <div className='merchContainer'>
-        <div className='merchCard'>
+      <div className='inputContainer'>
+        <div className='inputCard'>
           <div className="text-3xl font-semibold">Check Out</div>
-          <div className='text-xl'> Cart: {cartItems.length} </div>
-          <div className='text-xl'> Price: ${addUpPrices(cartItems)}</div>
-        <div>
+          <div className='text-2xl'> Cart: {cartItems.length} </div>
+          <div className='text-2xl'> Price: ${addUpPrices(cartItems)}</div>
+        </div>
+      </div>
+        <div className='merchContainer'>
           {cartItems.map((item, i) => {
             return(
-              <div key={i}>
+              <div className='merchCard' key={i}>
                 <div className='text-3xl font-bold'>{item.product_name}</div>
                 <img src={item.img_url} />
                 <div className='text-3xl font-semibold'>{item.price}</div>
@@ -81,11 +80,13 @@ function MerchCartView(){
               )
             })}
         </div>
+    <div className='inputContainer mt-4'>
+      <div className="inputCard">
         <Link to="/home">
-      <button className="text-white border mt-2 bg-orange-400 border-orange-400
-    hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
-    </Link>
-    </div>
+          <button className="text-white border mt-2 bg-orange-400 border-orange-400
+            hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" onClick={appendToDb}>Checkout</button>
+        </Link>
+      </div>
     </div>
     </>
   )

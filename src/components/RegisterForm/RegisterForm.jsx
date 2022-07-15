@@ -26,6 +26,14 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
+    <>
+    <div className='registerContainer'>
+    <div className='text-3xl'>
+     "The Razor Blades"
+    </div>
+    
+    <div className='text-xl'> The Premiere Reginald Fan Club</div>
+    <br></br>
     <form className="formPanel" onSubmit={registerUser}>
       <h2>Register User</h2>
       {errors.registrationMessage && (
@@ -87,7 +95,10 @@ function RegisterForm() {
         <input className="btn text-white border mt-2 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" name="submit" value="Register" />
       </div>
+      
     </form>
+    </div>
+    </>
   );
 }
 

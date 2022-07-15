@@ -4,11 +4,13 @@ function InfoReg(){
   return (
     <div>
     <div>
-        InfoReg - STUFF ABOUT REGGIE
+        Razor Blades
     </div>
     <br></br>
-    <div>
-        THANKS TO YOU ALL! - ODB
+    <div className='infoContainer'>
+        <div className='merchCard ml-10'>
+        <img src="https://i.imgur.com/TQoYHPC.jpg"/>
+        </div>
     </div>
     </div>
   )

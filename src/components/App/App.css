@@ -101,8 +101,13 @@ input[type="password"]:focus{
 ul {
   list-style-type: none;
 }
+.infoContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 .merchCard{
-  width: 30em;
+  width: 26em;
   justify-content: center;
   
 }

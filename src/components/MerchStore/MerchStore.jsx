@@ -2,7 +2,7 @@ import React from 'react'
 //import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AddToCart from '../AddToCart/AddToCart';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import EditButton from '../EditButton/EditButton';
@@ -30,11 +30,10 @@ function MerchStore() {
 
   return (
     <>
-    
         <div className='inputContainer'>
         <div className='inputCard'>
-        <div className="text-3xl font-semibold">Welcome to the store?</div>
-        <div className='text-xl ml-28 mb-6'>Cart: {cart.length}</div>
+        <div className="text-3xl font-semibold">Welcome, Razor Blades!</div>
+        <div className='text-2xl ml-28 mb-6'>Cart: {cart.length}</div>
         </div>
         </div>
         <div className='merchContainer'>
@@ -55,7 +54,6 @@ function MerchStore() {
                         {user.admin && (
                             <>
                             <div className="text-2xl mt-2">Administrative Powers Activated</div>
-                            <br></br>
                         <DeleteButton itemId={item.id}/>
                         <Link to={`/merch/${item.id}/edit`}>
                         <EditButton itemId={item.id}/>
@@ -66,22 +64,23 @@ function MerchStore() {
                     </div>
                     )
                 })}
-                
+               
            
             
-            {user.admin && (
-            <Link to="/merchadd">
-           <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
-            </Link>
-            )}
+            
         </div>
         <div className='inputContainer mt-4'>
         <div className="inputCard">
         <Link to="/merchcartview" className="text-white border mt-8 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-3">Proceed To Checkout</Link>
+        {user.admin && (
+            <Link to="/merchadd">
+           <button className='px-2 py-2 ml-4'>Add Merch To Store</button>
+            </Link>
+            )}
+        </div>
+        </div>
         
-        </div>
-        </div>
     </>
   )
 }
