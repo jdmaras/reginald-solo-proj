@@ -125,6 +125,17 @@ ul {
   justify-content: center;
   align-items: center;
 }
+.infoContainer{
+  display: flex;
+  justify-content: space-around;
+}
+.infoWithPicture{
+  justify-content: center;
+}
+.techUsedInfo{
+  justify-content: center;
+  width: 36em;
+}
 .inputContainer{
   display: flex;
   flex-direction: row;

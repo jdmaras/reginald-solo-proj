@@ -6,7 +6,12 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <div className='merchContainer'>
+      <div className='merchCard'>
+      <div className='text-3xl'>
+        If you want to access the Merch Store, you have to Login.
+      </div>
+      <br></br>
       <LoginForm />
       <center>
         <button
@@ -19,6 +24,7 @@ function LoginPage() {
           Register
         </button>
       </center>
+      </div>
     </div>
   );
 }

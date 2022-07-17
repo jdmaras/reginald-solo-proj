@@ -28,7 +28,7 @@ function LoginForm() {
     <div className='inputContainer'>
     <div className='inputCard'>
     <form className="formPanel" onSubmit={login}>
-      <div className="text-3xl">Login</div>
+      <div className="text-2xl">Login</div>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
