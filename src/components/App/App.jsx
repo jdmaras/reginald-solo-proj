@@ -8,7 +8,6 @@ import {
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import FanClub from "../FanClub/FanClub";
 import Footer from "../Footer/Footer";
 import InfoReg from "../InfoReg/InfoReg";
 import LandingPage from "../LandingPage/LandingPage";
@@ -49,9 +48,6 @@ function App() {
             path="/inforeg"
           >
             <InfoReg />
-          </Route>
-          <Route exact path="/fanclub">
-            <FanClub />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
