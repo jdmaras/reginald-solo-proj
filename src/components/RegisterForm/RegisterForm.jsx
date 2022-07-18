@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -26,8 +27,16 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
+    <>
+    <div className='registerContainer'>
+    <div className='text-3xl'>
+     "The Razor Blades"
+    </div>
+    
+    <div className='text-xl'> The Premiere Reginald Fan Club</div>
+    <br></br>
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <div className='text-2xl'>Register User</div>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -87,7 +96,15 @@ function RegisterForm() {
         <input className="btn text-white border mt-2 bg-orange-400 border-orange-400
     hover:bg-transparent hover:text-orange-500 rounded-md px-2 py-2" type="submit" name="submit" value="Register" />
       </div>
+      
     </form>
+    {/* <div>
+      <Link to='/login'>
+      <button>Login</button>
+      </Link>
+      </div> */}
+    </div>
+    </>
   );
 }
 

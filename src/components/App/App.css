@@ -101,26 +101,40 @@ input[type="password"]:focus{
 ul {
   list-style-type: none;
 }
+.infoContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 .merchCard{
-  width: 30em;
- 
+  width: 26em;
   justify-content: center;
+  
 }
 .merchContainer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-count: 3;
   width: 100%;
-  justify-content: center;
-  
-
+  justify-content: space-around;
+ 
 }
 .userContainer{
   margin:auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.infoContainer{
+  display: flex;
+  justify-content: space-around;
+}
+.infoWithPicture{
+  justify-content: center;
+}
+.techUsedInfo{
+  justify-content: center;
+  width: 36em;
 }
 .inputContainer{
   display: flex;

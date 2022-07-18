@@ -7,11 +7,12 @@ function RegisterPage() {
   const history = useHistory();
 
   return (
+    <>
     <div className='registerFormContainer'>
       <RegisterForm />
 
-      <center>
-        <button
+      {/* <center>
+      <button
           type="button"
           className="btn btn_asLink"
           onClick={() => {
@@ -20,8 +21,9 @@ function RegisterPage() {
         >
           Login
         </button>
-      </center>
+      </center> */}
     </div>
+    </>
   );
 }
 
